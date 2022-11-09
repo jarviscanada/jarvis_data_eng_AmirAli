@@ -22,8 +22,10 @@ case $cmd in
 	;;
   start|stop)
   if [ $container_status -ne 0 ]; then
-	docker container "$cmd" jrvs-psql
-	fi
+    echo 'Container has not been created yet'
+    exit 1
+  fi
+	docker container "$cmd" $container_name
 	exit $?
 	;;
   *)
