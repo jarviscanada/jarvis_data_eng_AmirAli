@@ -2,6 +2,7 @@
 cmd=$1
 db_username=$2
 db_password=$3
+container_name="jrvs-psql"
 sudo systemctl status docker || sudo systemctl start docker
 docker container inspect jrvs-psql
 container_status=$?
@@ -15,8 +16,9 @@ case $cmd in
     echo 'Create requires username and password'
     exit 1
   fi
-	docker volume ....
-	docker run ....
+  docker pull postgres
+	docker volume create pgdata
+	docker run --name $container_name -e POSTGRES_PASSWORD=$PGPASSWORD -d -v pgdata:/var/lib/postgresql/data -p 5432:5432 postgres:9.6-alpine
 	exit $?
 	;;
   start|stop)
