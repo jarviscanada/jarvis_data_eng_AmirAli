@@ -2,7 +2,7 @@
 cmd=$1
 db_username=$2
 db_password=$3
-sudo systemctl status docker || systemctl ...
+sudo systemctl status docker || sudo systemctl start docker
 docker container inspect jrvs-psql
 container_status=$?
 case $cmd in
