@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /bin/bash
 cmd=$1
 db_username=$2
 db_password=$3
@@ -16,15 +16,14 @@ case $cmd in
     echo 'Create requires username and password'
     exit 1
   fi
-  docker pull postgres
 	docker volume create pgdata
-	docker run --name $container_name -e POSTGRES_PASSWORD=$PGPASSWORD -d -v pgdata:/var/lib/postgresql/data -p 5432:5432 postgres:9.6-alpine
+	docker run --name $container_name -e POSTGRES_USER="$db_username" -e POSTGRES_PASSWORD="$db_password" -d -v pgdata:/var/lib/postgresql/data -p 5432:5432 postgres:9.6-alpine
 	exit $?
 	;;
   start|stop)
-  if [ $container_status ...
-  ...
-	docker container $cmd jrvs-psql
+  if [ $container_status -ne 0 ]; then
+	docker container "$cmd" jrvs-psql
+	fi
 	exit $?
 	;;
   *)
