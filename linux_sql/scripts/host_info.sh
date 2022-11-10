@@ -22,5 +22,7 @@ total_mem=$(grep MemTotal /proc/meminfo | awk '{print $2}' | xargs)
 timestamp=$(vmstat -t | awk 'FNR == 3 {print $18,$19}')
 
 #insert statement variable
+insert_stmt="INSERT INTO host_info(host_name,cpu_number,cpu_architecture,cpu_model,cpu_mhz,l2_cache,total_mem,timestamp)
+VALUES('hostname','cpu_number','cpu_architecture','cpu_model','cpu_mhz','l2_cache','total_mem','timestamp')"
 #instert into db
 #
