@@ -4,6 +4,12 @@ db_name=$3
 psql_user=$4
 psql_password=$5
 
+#validation
+if [ $# -n 5 ]; then
+  echo "Please enter the correct number of parameters"
+  exit 1
+fi
+
 #parse info
 lscpu_out=$(lscpu)
 hostname=$(hostname -f)
