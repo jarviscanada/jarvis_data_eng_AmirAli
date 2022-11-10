@@ -12,8 +12,8 @@ cpu_architecture=$(echo "$lscpu_out" | egrep "Architecture:" | awk '{print $2}' 
 cpu_model=$(echo "$lscpu_out" | egrep "Model name:.*" | xargs | cut -d " " -f3-5)
 cpu_mhz=$(echo "$lscpu_out" | egrep "CPU MHz:" | awk '{print $3}' | xargs)
 l2_cache=$(echo "$lscpu_out" | egrep "L2 cache:" | awk '{print $3}' | head -c-2 | xargs)
-total_mem= $(grep MemTotal /proc/meminfo | awk '{print $2}' | xargs)
-timestamp= $(vmstat -t | awk 'FNR == 3 {print $18,$19}')
+total_mem=$(grep MemTotal /proc/meminfo | awk '{print $2}' | xargs)
+timestamp=$(vmstat -t | awk 'FNR == 3 {print $18,$19}')
 
 #insert statement variable
 #instert into db
