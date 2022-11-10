@@ -5,7 +5,7 @@ psql_user=$4
 psql_password=$5
 
 #parse info
-lscpu_out=$()lscpu)
+lscpu_out=$(lscpu)
 hostname=$(hostname -f)
 cpu_number=$(echo "$lscpu_out"  | egrep "^CPU\(s\):" | awk '{print $2}' | xargs)
 cpu_architecture=$(echo "$lscpu_out" | egrep "Architecture:" | awk '{print $2}' | xargs)
