@@ -36,4 +36,8 @@ insert_stmt="INSERT INTO host_usage(timestamp,host_id,memory_free,cpu_idle,cpu_k
 VALUES('$timestamp','$host_id','$memory_free','$cpu_idle','$cpu_kernel','$disk_io','$disk_available')"
 
 #set up env for psql authentication
+export PGPASSWORD=$psql_password
+
 #insert usage data into database
+psql -h $psql_host -p $psql_port -d $db_name -U $psql_user -c "$insert_stmt"
+exit $?
