@@ -23,7 +23,7 @@ quickstart code commands
 discuss implementation
 
 ## Architecture
-image
+![Linux SQL architecture](assets/linuxSQL_architecture.drawio)
 ## Scripts
 list scripts and their usage
 include crontab
