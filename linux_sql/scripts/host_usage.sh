@@ -1,4 +1,4 @@
-#!/bin/bash
+#! /bin/bash
 
 #set up variables for cli arguments
 psql_host=$1
