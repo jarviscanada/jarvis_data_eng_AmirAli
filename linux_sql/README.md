@@ -11,28 +11,52 @@ A List of Technologies use:
 - Linux
 - Bash
 - Docker
-- PostrgreSQL
+- PostgreSQL
 # Quick Start
 quickstart code commands
-- Start a psql instance using psql_docker.sh
-- Create tables using ddl.sql
-- Insert hardware specs data into the DB using host_info.sh
-- Insert hardware usage data into the DB using host_usage.sh
-- Crontab setup
+```
+# Create and run PostgreSQL instance
+./scripts/psql_docker.sh create [username] [password]
+
+# Start/Stop a PostgreSQL instance
+./scripts/psql_docker.sh start
+./scripts/psql_docker.sh stop
+
+# Create tables using ddl.sql
+psql -h localhost -U [username] -d host_agent -f ./sql/ddl.sql
+
+# Insert hardware specs data into the DB 
+./scripts/host_info.sh localhost 5432 host_agent [username] [password]
+
+# Insert hardware usage data into the DB using host_usage.sh
+./scripts/host_usage.sh localhost 5432 host_agent [username] [password]
+
+# Crontab setup for host_usage.sh automation
+
+# Open Crontab editor
+crontab -e
+
+# Enter and save in editor:
+***** [absolute path to]/linux_sql/scripts/host_usage.sh locahost 5432 host_agent [username] [password]
+
+```
 # Implementation
 discuss implementation
 
 ## Architecture
 ![Linux SQL architecture](assets/linuxSQL_architecture.jpg)
 ## Scripts
-list scripts and their usage
-include crontab
+- host_info.sh
+- host_usage.sh
+- psql_docker.sh
+- crontab
 ## Database Modeling
 table schema of host_info and host_usage
 # Test
 How did you test your bash scripts DDL? What was the result?
 # Deployment
-How did you deploy your app? (e.g. Github, crontab, docker)
+Source code and version control are managed using Git and Github. The PostG
+A cron job is scheduled with storing the resource usage data into the database.
 # Improvements
 Write at least three things you want to improve
 e.g.
