@@ -109,11 +109,23 @@ work across a network cluster of Linux systems. Verified functionalities
 directly by ensuring the correct data was inserted into the sql database.
 
 # Deployment
-Source code and version control are managed using Git and Github. The PostG
-A cron job is scheduled with storing the resource usage data into the database.
+Source code and version control are managed using Git and Github. 
+The PostgreSQL database is created as a docker container instance.
+A `cron` job is scheduled with storing the resource usage data 
+into the database ad regular intervals.
+
 # Improvements
-Write at least three things you want to improve
-e.g.
-- handle hardware updates
-- blah
-- blah
+
+- Currently, hardware updates are not considered. 
+The script to store the hardware information runs only once so if 
+new hardware is installed that information isn't stored in the database. 
+One solution to this is to set up an automation that is scheduled 
+longer than the resource usage cron job in case there are any hardware changes.
+
+
+- More types of resources can have their usage tracked. 
+For example network usage rates can be tracked to see the efficiency 
+of the network.
+
+
+- An option to export the data stored in the database into a more readable format. This could include graphs and tables in an easy-to-read GUI. 
