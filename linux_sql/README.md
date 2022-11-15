@@ -101,7 +101,13 @@ intervals of 1 minute.
 
 
 # Test
-How did you test your bash scripts DDL? What was the result?
+
+Manually tested all bash scripts and sql statements using a VM instance
+running on Google Cloud Platform. Tested network capabilities by assigning
+a port to the psql container so that I could assure the commands would
+work across a network cluster of Linux systems. Verified functionalities
+directly by ensuring the correct data was inserted into the sql database.
+
 # Deployment
 Source code and version control are managed using Git and Github. The PostG
 A cron job is scheduled with storing the resource usage data into the database.
