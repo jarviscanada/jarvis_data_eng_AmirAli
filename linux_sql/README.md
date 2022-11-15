@@ -41,7 +41,27 @@ crontab -e
 
 ```
 # Implementation
-discuss implementation
+This project was implemented in 4 main steps. 
+
+1. The first task was to create the `psql_docker.sh` bash script that can 
+create, start and stop a docker container running PostgreSQL. The purpose 
+of the PostgreSQL container is to set up a database to store information
+about the host system's hardware specifications and resource usage data.
+
+2. The next step was to create a schema in the `ddl.sql` file to define the
+two tables in the database for the host_info and host_usage. 
+The tables are populated by data gain when the `host_info.sh`
+and `host_usage.sh` shell scripts are run.
+
+3. After setting up the database structure the next step was to create 
+the two shell scripts to obtain the necessary data and insert them into the 
+psql databases. The `host_info.sh` script uses the lscpu command to obtain 
+the hardware specifications of the host and the `host_usage.sh` script uses 
+the vmstat command to obtain the resource usage data.
+
+4. Lastly a `cron` job is used to automate the host_usage script so 
+that new resource usage data is inserted into the database at regular 
+intervals of 1 minute.
 
 ## Architecture
 ![Linux SQL architecture](assets/linuxSQL_architecture.jpg)
@@ -52,6 +72,7 @@ discuss implementation
 - crontab
 ## Database Modeling
 table schema of host_info and host_usage
+
 # Test
 How did you test your bash scripts DDL? What was the result?
 # Deployment
