@@ -71,7 +71,34 @@ intervals of 1 minute.
 - psql_docker.sh
 - crontab
 ## Database Modeling
-table schema of host_info and host_usage
+
+### host_info table schema
+
+| Properties       | Description                                                              |
+|------------------|--------------------------------------------------------------------------|
+| id               | Unique Serial - Primary Key identifier                                   |
+| hostname         | Unique Varchar - name of the host machine                                |
+| cpu_number       | Integer - number of CPUs in the host machine                             |
+| cpu_architecture | Varchar - CPU architecture type                                          |
+| cpu_model        | Varchar - CPU model name                                                 |
+| cpu_mhz          | Numeric - the CPU clock speed in MHz                                     |
+| L2_cache         | Integer - the size of L2 cache in the CPU in KB                          |
+| total_mem        | Integer - the size of the total memory in the host machine in KB         |
+| timestamp        | Timestamp - the timestamp of when the data is collected in UTC time zone |
+
+
+### host_usage table schema
+
+| Properties     | Description                                                                   |
+|----------------|-------------------------------------------------------------------------------|
+| timestamp      | Timestamp - the timestamp of when the data is collected in UTC time zone      |
+| host_id        | Integer Foreign Key - referencing the id of the host machine                  |
+| memory_free    | Integer - amount of free memory for the host machine in MB                    |
+| cpu_idle       | Integer - percentage between 0 and  100 of the CPU that is idle               |
+| cpu_kernel     | Integer - percentage between 0 and  100 of the CPU that is used by the kernel |
+| disk_io        | Integer - number of disk I/O that the host machine has                        |
+| disk_available | Integer - the amount of available disk space on the host machine in MB        |
+
 
 # Test
 How did you test your bash scripts DDL? What was the result?
