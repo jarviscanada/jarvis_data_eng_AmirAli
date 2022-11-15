@@ -7,7 +7,7 @@ storing the data in a relational database management system. By installing
 this tool in remote nodes the Linux Cluster Administration team can analyze
 the data and generate plans for future resource management.
 
-A List of Technologies use:
+A List of Technologies used:
 - Linux
 - Bash
 - Docker
