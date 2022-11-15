@@ -26,10 +26,10 @@ quickstart code commands
 psql -h localhost -U [username] -d host_agent -f ./sql/ddl.sql
 
 # Insert hardware specs data into the DB 
-./scripts/host_info.sh localhost 5432 host_agent [username] [password]
+./scripts/host_info.sh localhost 5432 [database] [username] [password]
 
 # Insert hardware usage data into the DB using host_usage.sh
-./scripts/host_usage.sh localhost 5432 host_agent [username] [password]
+./scripts/host_usage.sh localhost 5432 [database] [username] [password]
 
 # Crontab setup for host_usage.sh automation
 
@@ -37,7 +37,7 @@ psql -h localhost -U [username] -d host_agent -f ./sql/ddl.sql
 crontab -e
 
 # Enter and save in editor:
-***** [absolute path to]/linux_sql/scripts/host_usage.sh locahost 5432 host_agent [username] [password]
+***** [absolute path to]/linux_sql/scripts/host_usage.sh locahost 5432 [database] [username] [password]
 
 ```
 # Implementation
@@ -66,10 +66,41 @@ intervals of 1 minute.
 ## Architecture
 ![Linux SQL architecture](assets/linuxSQL_architecture.jpg)
 ## Scripts
-- host_info.sh
-- host_usage.sh
-- psql_docker.sh
-- crontab
+
+- `psql_docker.sh` - This script executes three possible commands, 
+creating, starting and stopping the psql docker container.
+```
+# Creating and running the psql docker container
+./scripts/psql_docker.sh create [username] [password]
+
+# starting the container after ending it
+./scripts/psql_docker.sh start
+
+# stopping a runnning container
+./scripts/psql_docker.sh stop
+```
+- `host_info.sh` - This script obtains system hardware specifications 
+and inserts the data into the host_info table in the database.
+```
+# Get Hardware specifications and insert into db.
+./scripts/host_info.sh localhost 5432 [database] [username] [password]
+
+```
+- `host_usage.sh` - This script obtains system hardware resource usage
+  and inserts the data into the host_usage table in the database.
+```
+# Get Hardware resource usage and insert into db.
+./scripts/host_info.sh localhost 5432 [database] [username] [password]
+
+```
+- `crontab` - Automates the `host_usage.sh` script to run at intervals of 1 minute.
+```
+# Open Crontab editor
+crontab -e
+
+# Enter and save in editor:
+***** [absolute path to]/linux_sql/scripts/host_usage.sh locahost 5432 [database] [username] [password]
+```
 ## Database Modeling
 
 ### host_info table schema
