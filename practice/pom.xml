@@ -1,0 +1,4 @@
+packages="dataStructure codingChallenge"
+for p in $(echo $packages); do
+	mkdir -p src/main/java/ca/jrvs/practice/$p src/test/java/ca/jrvs/practice/$p
+done
