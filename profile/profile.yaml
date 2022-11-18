@@ -1,11 +1,24 @@
 # Preferred name (Characters only)
 name: "Amir Ali"
 # Your GitHub repo root URL
-github_repo_root_url: https://github.com/jarviscanada/jarvis_data_eng_demo
+github_repo_root_url: https://github.com/jarviscanada/jarvis_data_eng_AmirAli
 
 # Introduce yourself, your academic and professional background.
 # What excites you about the software industry and your passion. At least 80 words
-summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed venenatis a orci ac malesuada. Vivamus ligula elit, viverra eu ante porttitor, blandit convallis augue. Aliquam justo justo, mollis at lacus eu, rutrum finibus est. Vestibulum venenatis purus id accumsan pretium. In efficitur magna nec enim laoreet tincidunt. Ut libero metus, scelerisque nec eros vitae, sagittis pellentesque enim. Donec dictum felis volutpat, vehicula magna eu, imperdiet elit. Phasellus ut velit a massa efficitur faucibus. Sed volutpat, lacus sed sagittis luctus, elit.
+
+summary: I am a recent graduate from the University of Wollongong with a Bachelor of Computer Science, majoring in multimedia and game development. 
+  During my studies, I have worked on projects covering a wide range of topics including core object-oriented programming principles, algorithms, web development, 
+  AI logic, mobile app development, blueprint visual scripting, 3D graphics programming, and much more. After completing my undergraduate degree, 
+  I attended the Lighthouse Labs web development boot camp to build my foundation in full-stack web development, 
+  where I specialized in the PostgreSQL, Express, React, NodeJS technology stack and gained proficiency with a variety of important topics such as 
+  REST API integration, Object-Relational Mapping, continuous integration and delivery, software testing and more.
+  
+  As a software developer and web developer, I built and maintained efficiently optimized web services together with clients, 
+  and I currently work at Jarvis as a data engineer, which enables me to further develop my full-stack engineering skills. 
+  In addition to software engineering, I enjoy learning how to cook different cuisines for my family and creating mixed-media art. 
+  The interests I have reflected the approach I take to software development, 
+  which is to express myself creatively while also providing a valuable service to others.
+
 
 # Group your skills by level.
 # Your skills can be anything software related (e.g. language, frameworks, methodologies, software, etc.).
@@ -90,13 +103,13 @@ professional_experience:
     description: "Donec mattis sed justo et sagittis. Vestibulum lacinia nulla ipsum. Curabitur imperdiet nibh vitae leo lacinia laoreet. Nullam accumsan, lectus ut maximus ultricies, augue justo egestas mi, vel bibendum felis."
 
 #List of edcuation
-education: 
+education:
   - school_name: "XYZ university"
     duration: "2012-2016"
     degree: "Bachelor of Applied Sciences"
     department: "Electrical and Computer Engineering"
     # optional
-    awards_achievements: 
+    awards_achievements:
       - "Scholarship"
       - "Dean's List (2015, 2016): Ut enim ad minim veniam"
       - "GPA: 3.8/4.0"
@@ -104,7 +117,7 @@ education:
     duration: "2016-2018"
     degree: "Master of Engineering"
     department: "Electrical and Computer Engineering"
-    awards_achievements: 
+    awards_achievements:
 
 #Optional section
 others:
