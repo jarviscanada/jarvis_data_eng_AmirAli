@@ -30,12 +30,13 @@ public class RegexExcImp implements RegexExc{
   }
 
   /**
-   * return true if lineis empty (e.g. empty, white space, tabs, etc..)
+   * return true if line is empty (e.g. empty, white space, tabs, etc..)
    * @param line
    * @return
    */
   @Override
   public boolean isEmptyLine(String line) {
-    return false;
+    boolean isEmpty = Pattern.matches("^$|^\\s+$", line);
+    return isEmpty;
   }
 }
