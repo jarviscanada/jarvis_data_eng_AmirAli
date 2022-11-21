@@ -25,7 +25,8 @@ public class RegexExcImp implements RegexExc{
    */
   @Override
   public boolean matchIp(String ip) {
-    return false;
+    boolean isMatched = Pattern.matches("^[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}$", ip);
+    return isMatched;
   }
 
   /**
