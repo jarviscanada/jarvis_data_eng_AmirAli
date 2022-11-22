@@ -17,7 +17,7 @@ public class JavaGrepImp implements JavaGrep {
    */
   public static void main(String[] args) {
 
-    //validatiom
+    //validation
     if(args.length != 3) {
       throw new IllegalArgumentException("Three arguments required, regex rootDir and outfile");
     }
@@ -64,7 +64,7 @@ public class JavaGrepImp implements JavaGrep {
 
   @Override
   public String getRootPath() {
-    return null;
+    return rootPath;
   }
 
   @Override
@@ -74,7 +74,7 @@ public class JavaGrepImp implements JavaGrep {
 
   @Override
   public String getRegex() {
-    return null;
+    return regex;
   }
 
   @Override
@@ -84,7 +84,7 @@ public class JavaGrepImp implements JavaGrep {
 
   @Override
   public String getOutFile() {
-    return null;
+    return outFile;
   }
 
   @Override
