@@ -4,11 +4,41 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+
 public class JavaGrepImp implements JavaGrep {
+
+  private String regex;
+  private String rootPath;
+  private String outFile;
+
+  /**
+   * Get cli arguments and set the class variables to the args elements. then start the process function
+   * @param args
+   */
+  public static void main(String[] args) {
+
+    //validatiom
+    if(args.length != 3) {
+      throw new IllegalArgumentException("Three arguments required, regex rootDir and outfile");
+    }
+
+    //setter
+    JavaGrepImp javaGrepImp = new JavaGrepImp();
+    javaGrepImp.setRegex(args[0]);
+    javaGrepImp.setRootPath(args[1]);
+    javaGrepImp.setOutFile(args[2]);
+
+    try{
+      javaGrepImp.process();
+    }catch(Exception e){
+
+    }
+  }
 
 
   @Override
   public void process() throws IOException {
+
 
   }
 
@@ -39,7 +69,7 @@ public class JavaGrepImp implements JavaGrep {
 
   @Override
   public void setRootPath(String rootPath) {
-
+    this.rootPath = rootPath;
   }
 
   @Override
@@ -49,7 +79,7 @@ public class JavaGrepImp implements JavaGrep {
 
   @Override
   public void setRegex(String regex) {
-
+    this.regex = regex;
   }
 
   @Override
@@ -59,6 +89,6 @@ public class JavaGrepImp implements JavaGrep {
 
   @Override
   public void setOutFile(String outFile) {
-
+  this.outFile = outFile;
   }
 }
