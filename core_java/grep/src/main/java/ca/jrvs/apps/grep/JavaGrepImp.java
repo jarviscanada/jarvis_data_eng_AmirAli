@@ -42,7 +42,6 @@ public class JavaGrepImp implements JavaGrep {
     }
   }
 
-
   @Override
   public void process() throws IOException {
     //listfiles
@@ -72,6 +71,7 @@ public class JavaGrepImp implements JavaGrep {
 
   @Override
   public boolean containsPattern(String line) {
+
     return false;
   }
 
