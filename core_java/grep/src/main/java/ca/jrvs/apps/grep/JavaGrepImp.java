@@ -2,6 +2,7 @@ package ca.jrvs.apps.grep;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.BasicConfigurator;
@@ -44,10 +45,21 @@ public class JavaGrepImp implements JavaGrep {
 
   @Override
   public void process() throws IOException {
-
-
+    //listfiles
+      //readlines
+        //if contains Pattern
+          //add
+    //writetofile
+    List<String> matchedLines = new ArrayList<String>();
+    for(File file : listFiles(rootPath)){
+      for(String line : readLines(file)){
+          if(containsPattern(line)){
+            matchedLines.add(line);
+          }
+      }
+    }
+  writeToFile(matchedLines);
   }
-
   @Override
   public List<File> listFiles(String rootDir) {
     return null;
