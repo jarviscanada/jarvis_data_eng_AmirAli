@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.util.regex.Pattern;
 import org.apache.log4j.BasicConfigurator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -71,8 +72,8 @@ public class JavaGrepImp implements JavaGrep {
 
   @Override
   public boolean containsPattern(String line) {
-
-    return false;
+    boolean isMatched = Pattern.matches(getRegex(), line);
+    return isMatched;
   }
 
   @Override
