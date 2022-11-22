@@ -1,5 +1,5 @@
 package ca.jrvs.apps.practice;
-
+import org.slf4j.Logger;
 class HelloWorld {
 
   //Print "Hello World to the terminal window"
