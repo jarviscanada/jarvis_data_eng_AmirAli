@@ -4,6 +4,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+import org.apache.log4j.BasicConfigurator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class JavaGrepImp implements JavaGrep {
 
@@ -11,11 +14,14 @@ public class JavaGrepImp implements JavaGrep {
   private String rootPath;
   private String outFile;
 
+  Logger logger = LoggerFactory.getLogger(JavaGrep.class);
+
   /**
    * Get cli arguments and set the class variables to the args elements. then start the process function
    * @param args
    */
   public static void main(String[] args) {
+    BasicConfigurator.configure();
 
     //validation
     if(args.length != 3) {
@@ -31,7 +37,7 @@ public class JavaGrepImp implements JavaGrep {
     try{
       javaGrepImp.process();
     }catch(Exception e){
-
+      javaGrepImp.logger.error("Could not start the process method", e);
     }
   }
 
