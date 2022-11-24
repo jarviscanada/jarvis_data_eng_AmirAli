@@ -94,7 +94,7 @@ public class JavaGrepImp implements JavaGrep {
   @Override
   public List<String> readLines(File inputFile) throws IllegalArgumentException {
     //create the array of lines that need to be returned
-    List<String> linesArray = new ArrayList<>();
+    List<String> linesArrayList = new ArrayList<>();
     String line;
     try{
       BufferedReader reader = new BufferedReader((new FileReader(inputFile)));
@@ -108,7 +108,7 @@ public class JavaGrepImp implements JavaGrep {
       logger.error("Contents of file cannot be read", io);
       //throw new IllegalArgumentException("Contents of file cannot be read", io);
     }
-    return null;
+    return linesArrayList;
   }
 
   @Override
