@@ -99,7 +99,7 @@ public class JavaGrepImp implements JavaGrep {
     try{
       BufferedReader reader = new BufferedReader((new FileReader(inputFile)));
       while((line = reader.readLine()) != null) {
-        linesArray.add(line);
+        linesArrayList.add(line);
       }
     }catch(FileNotFoundException fnfe){
       logger.error("Given input is not the correct file", fnfe);
