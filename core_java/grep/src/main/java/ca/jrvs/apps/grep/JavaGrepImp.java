@@ -1,6 +1,9 @@
 package ca.jrvs.apps.grep;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -86,7 +89,20 @@ public class JavaGrepImp implements JavaGrep {
   }
 
   @Override
-  public List<String> readLines(File inputFile) {
+  public List<String> readLines(File inputFile) throws IllegalArgumentException {
+    //create the array of lines that need to be returned
+    List<String> linesArray = new ArrayList<>();
+    String line;
+    try{
+      BufferedReader reader = new BufferedReader((new FileReader(inputFile)));
+      while((line = reader.readLine()) != null) {
+        linesArray.add(line);
+      }
+    }catch(FileNotFoundException fnfe){
+      throw new IllegalArgumentException("Given input is not the correct file", fnfe);
+    } catch(IOException io) {
+      throw new IllegalArgumentException("Contents of file cannot be read", io);
+    }
     return null;
   }
 

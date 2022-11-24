@@ -26,6 +26,7 @@ public interface JavaGrep {
    * @param inputFile file to be read
    * @return lines
    * @throws IllegalArgumentException if a given inputFile is not a file
+   * @throws IOException if a given file is not found
    */
   List<String> readLines(File inputFile);
 
