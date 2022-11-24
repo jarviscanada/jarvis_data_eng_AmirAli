@@ -20,7 +20,7 @@ public class JavaGrepImp implements JavaGrep {
 
   /**
    * Get cli arguments and set the class variables to the args elements. then start the process function
-   * @param args
+   * @param args cli arguments for regex rootDir and outfile
    */
   public static void main(String[] args) {
     BasicConfigurator.configure();
@@ -45,12 +45,13 @@ public class JavaGrepImp implements JavaGrep {
 
   @Override
   public void process() throws IOException {
-    //listfiles
-      //readlines
+    //listFiles
+      //readLines
         //if contains Pattern
           //add
-    //writetofile
+    //writeToFile
     List<String> matchedLines = new ArrayList<String>();
+    ArrayList<File> filesInDirectories = new ArrayList<File>();
     for(File file : listFiles(rootPath)){
       for(String line : readLines(file)){
           if(containsPattern(line)){
@@ -60,9 +61,28 @@ public class JavaGrepImp implements JavaGrep {
     }
   writeToFile(matchedLines);
   }
-  @Override
+  //@Override
   public List<File> listFiles(String rootDir) {
-    return null;
+
+    File currFile = new File(rootDir);
+    // get the initial root directory contents
+    File[] filesInDirectory = currFile.listFiles();
+    //array to store the list of files in all directories
+    List<File> listOfFiles = new ArrayList<>();
+    //if directory is empty return null
+    if(filesInDirectory == null) {
+      return null;
+    }
+    for(File file : filesInDirectory) {
+      //check if directory, if it is make a recursive call, store in a List type and add to the listOfFiles
+      if(file.isDirectory()) {
+        List<File> currDirectory = listFiles(file.getAbsolutePath());
+        listOfFiles.addAll(currDirectory);
+      } else {
+        listOfFiles.add(file);
+      }
+    }
+    return listOfFiles;
   }
 
   @Override
@@ -72,8 +92,7 @@ public class JavaGrepImp implements JavaGrep {
 
   @Override
   public boolean containsPattern(String line) {
-    boolean isMatched = Pattern.matches(getRegex(), line);
-    return isMatched;
+    return Pattern.matches(getRegex(), line);
   }
 
   @Override

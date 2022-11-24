@@ -2,6 +2,7 @@ package ca.jrvs.apps.grep;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import  java.util.List;
 public interface JavaGrep {
 
@@ -13,8 +14,8 @@ public interface JavaGrep {
 
   /**
    * Traverse a given directory and return all files
+   *
    * @param rootDir input directory
-   * @return files under the rootDir
    */
   List<File> listFiles(String rootDir);
 
