@@ -102,9 +102,11 @@ public class JavaGrepImp implements JavaGrep {
         linesArray.add(line);
       }
     }catch(FileNotFoundException fnfe){
-      throw new IllegalArgumentException("Given input is not the correct file", fnfe);
+      logger.error("Given input is not the correct file", fnfe);
+      //throw new IllegalArgumentException("Given input is not the correct file", fnfe);
     } catch(IOException io) {
-      throw new IllegalArgumentException("Contents of file cannot be read", io);
+      logger.error("Contents of file cannot be read", io);
+      //throw new IllegalArgumentException("Contents of file cannot be read", io);
     }
     return null;
   }
