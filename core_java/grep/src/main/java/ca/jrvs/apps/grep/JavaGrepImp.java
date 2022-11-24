@@ -1,10 +1,13 @@
 package ca.jrvs.apps.grep;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -113,6 +116,19 @@ public class JavaGrepImp implements JavaGrep {
 
   @Override
   public void writeToFile(List<String> lines) throws IOException {
+    File outputFile = new File(getOutFile());
+    FileOutputStream outputStream = new FileOutputStream(outputFile);
+    BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream));
+    try{
+      for(String line : lines) {
+        bufferedWriter.write(line);
+        bufferedWriter.newLine();
+      }
+      bufferedWriter.flush();
+      bufferedWriter.close();
+    } catch(IOException io) {
+      logger.error("Error: Failed to write to outfile", io);
+    }
 
   }
 
